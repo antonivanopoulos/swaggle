@@ -1,0 +1,40 @@
+swagger: '2.0'
+
+info:
+  version: '1.0.0'
+  title: 'Restaurants API'
+
+basePath: '/api/v1'
+paths:
+  /restaurants:
+    get:
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            required:
+              - data
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                description: A Restaurant
+                type: object
+                required:
+                  - id
+                  - type
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      brewer:
+                        type: string
+
