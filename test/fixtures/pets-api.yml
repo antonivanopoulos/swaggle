@@ -1,0 +1,97 @@
+swagger: '2.0'
+
+info:
+  version: '1.0.0'
+  title: 'Pet Store API'
+
+basePath: '/api/v1'
+paths:
+  /pets:
+    get:
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            required:
+              - data
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                description: A Pet
+                type: object
+                required:
+                  - id
+                  - type
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      breed:
+                        type: string
+  /owners:
+    get:
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            required:
+              - data
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                description: An Owner
+                type: object
+                required:
+                  - id
+                  - type
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+  /breeds:
+    get:
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            required:
+              - data
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                description: A Breed
+                type: object
+                required:
+                  - id
+                  - type
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      name:
+                        type: string
