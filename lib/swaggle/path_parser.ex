@@ -1,12 +1,16 @@
 defmodule Swaggle.PathParser do
 
-  def get_paths(file_path) do
-    %{"basePath" => base_path, "paths" => paths} = parse_from_file(file_path)
-
+  def get_paths(%{"basePath" => base_path, "paths" => paths} = response_map) do
     Enum.map(paths, fn ({key, value}) -> "#{base_path}#{key}" end)
   end
 
-  defp parse_from_file(file_path) do
+  def get_paths(file_path) do
+    response_map = map_from_yaml(file_path)
+
+    get_paths(response_map)
+  end
+
+  defp map_from_yaml(file_path) do
     full_path(file_path) |> YamlElixir.read_from_file()
   end
 

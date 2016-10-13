@@ -22,4 +22,18 @@ defmodule PathParserTest do
       assert Enum.member?(expected_paths, path)
     end)
   end
+
+  test "parses path from map" do
+    paths =
+      Swaggle.PathParser.get_paths(
+        %{
+          "basePath" => "/api/v1",
+          "paths" => %{
+            "/beers" => %{}
+          }
+        }
+    )
+
+    assert Enum.member?(paths, "/api/v1/beers")
+  end
 end
